@@ -1,0 +1,37 @@
+# Relaciones entre 2 o más tablas
+
+> Vamos a trar información de 2 o más tablas.
+> Para ellos vamos a utilizar la técnica ***"table relation"***
+
+
+> En esta técnica agregamos en el ***FROM*** (table list)
+> todas las tablas que necesitamos
+> y además tenemos que generar un filtro
+> que IGUALE LA COLUMNA DE RELACION ( la columna en común )
+> en ambas tablas
+
+
+    SELECT destNombre, destPrecio, regNombre
+    FROM destinos, regiones
+    WHERE destinos.idRegion = regiones.idRegion;
+
+    SELECT prdNombre, prdPrecio, mkNombre, catNombre  
+    FROM productos, marcas, categorias  
+    WHERE productos.idMarca = marcas.idMarca  
+    AND productos.idCategoria = categorias.idCategoria;  
+
+> Además tenemos otro técnica para traer datos de dos o más tablas. Esta es la técnica ***JOIN***
+
+
+    SELECT destNombre, destPrecio, regNombre  
+    FROM destinos  
+    JOIN regiones  
+    ON destinos.idRegion = regiones.idRegion;  
+
+    SELECT prdNombre, prdPrecio, mkNombre, catNombre  
+    FROM productos  
+    JOIN marcas  
+    ON productos.idMarca = marcas.idMarca  
+    JOIN categorias  
+    ON productos.idCategoria = categorias.idCategoria;  
+
